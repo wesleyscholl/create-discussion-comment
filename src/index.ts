@@ -20,7 +20,7 @@ const client = new GraphQLClient(endpoint, {
   },
 })
 
-const mutation = gql`mutation { addDiscussionComment( input: { body: ${body}, discussionId: ${discussionId}, clientMutationId: ${gqlClientMutationId} }) { clientMutationId comment { id body } } }`
+const mutation = gql`mutation addDiscussionComment { addDiscussionComment( input: { body: ${body}, discussionId: ${discussionId}, clientMutationId: ${gqlClientMutationId} }) { clientMutationId comment { id body } } }`
 
 const data = async() => {
    const res = await client.request(mutation, {}, {})
