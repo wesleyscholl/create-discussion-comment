@@ -10,7 +10,7 @@ inputs:
   token:
     description: 'GitHub PAT token, defaults to secrets.GITHUB_TOKEN'
     required: false
-    default: ${{ secrets.GITHUB_TOKEN }}
+    default: '${{ secrets.GITHUB_TOKEN }}'
   graphql-url:
     description: 'GitHub GraphQL Endpoint URL'
     required: false
