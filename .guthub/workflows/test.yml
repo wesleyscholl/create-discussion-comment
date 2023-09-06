@@ -7,3 +7,4 @@ jobs:
       uses: wei/curl@v1
       with:
         args: -X POST https://httpbin.org/post
+        
