@@ -31128,21 +31128,7 @@ const client = new graphql_request_1.GraphQLClient(endpoint, {
         'Content-Type': 'application/json'
     },
 });
-const mutation = (0, graphql_request_1.gql) `mutation addDiscussionComment {
-    addDiscussionComment(
-      input: {
-        body: ${body}, 
-        discussionId: ${discussionId}, 
-        clientMutationId: ${gqlClientMutationId}
-    }
-    ) {
-      clientMutationId
-      comment {
-        id
-        body
-      }
-    }
-  }`;
+const mutation = (0, graphql_request_1.gql) `mutation { addDiscussionComment( input: { body: ${body}, discussionId: ${discussionId}, clientMutationId: ${gqlClientMutationId} }) { clientMutationId comment { id body } } }`;
 const data = async () => {
     const res = await client.request(mutation, {}, {});
     console.log(res);
