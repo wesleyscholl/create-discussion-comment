@@ -2722,6 +2722,14 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ 865:
+/***/ ((module) => {
+
+module.exports = eval("require")("graphql-request");
+
+
+/***/ }),
+
 /***/ 491:
 /***/ ((module) => {
 
@@ -2856,6 +2864,8 @@ var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __nccwpck_require__(186);
+// @ts-expect-error
+const graphql_request_1 = __nccwpck_require__(865);
 const token = (0, core_1.getInput)('token');
 const graphqlUrl = (0, core_1.getInput)('graphql-url');
 const body = (0, core_1.getInput)('body');
@@ -2866,6 +2876,29 @@ console.log(`GraphQL URL: ${graphqlUrl}!`);
 console.log(`Comment Body: ${body}!`);
 console.log(`Discussion Topic ID: ${discussionId}!`);
 console.log(`GraphQL Client Mutation ID: ${gqlClientMutationId}!`);
+const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+};
+const mutation = (0, graphql_request_1.gql) `mutation addDiscussionComment {
+    addDiscussionComment(
+      input: {body: ${body}, discussionId: ${discussionId}, clientMutationId: ${gqlClientMutationId}}
+    ) {
+      clientMutationId
+      comment {
+        id
+        body
+      }
+    }
+  }`;
+const data = async (params) => {
+    await (0, graphql_request_1.request)({
+        graphqlUrl,
+        mutation,
+        headers,
+    });
+};
+console.log(data);
 
 })();
 

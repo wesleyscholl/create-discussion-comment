@@ -12,8 +12,8 @@ jobs:
       - uses: ./
         with:
           token: 'TEST_TOKEN'
-          graphql-url: 'https://google.com'
+          graphql-url: 'https://api.github.com/graphql'
           body: "This is a test comment!"
-          discussion-id: '2j3j47f8g6f5dfk'
+          discussion-id: 'D_kwDOKMfoY84AVVQ6'
           gql-client-mutation-id: '8888'
     
