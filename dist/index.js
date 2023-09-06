@@ -1,2 +1,13 @@
 "use strict";
-console.log('Hello World!');
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@actions/core");
+const token = (0, core_1.getInput)('token');
+const graphqlUrl = (0, core_1.getInput)('graphql-url');
+const body = (0, core_1.getInput)('body');
+const discussionId = (0, core_1.getInput)('discussion-id');
+const gqlClientMutationId = (0, core_1.getInput)('gql-client-mutation-id');
+console.log(`Token: ${token}!`);
+console.log(`GraphQL URL: ${graphqlUrl}!`);
+console.log(`Comment Body: ${body}!`);
+console.log(`Discussion Topic ID: ${discussionId}!`);
+console.log(`GraphQL Client Mutation ID: ${gqlClientMutationId}!`);
