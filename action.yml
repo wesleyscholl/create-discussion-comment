@@ -6,7 +6,6 @@ runs:
   using: 'node16'
   main: 'dist/index.js'
 
-
 inputs:
   token:
     description: 'GitHub PAT token, defaults to secrets.GITHUB_TOKEN'
@@ -28,7 +27,6 @@ inputs:
     description: 'A unique numeric string required by GraphQL for mutations'
     required: false
     default: '1234'
-
 
 branding:
   icon: 'activity'
