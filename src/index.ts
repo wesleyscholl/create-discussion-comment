@@ -20,9 +20,13 @@ const client = new GraphQLClient(endpoint, {
   },
 })
 
-  const mutation =  gql`mutation addDiscussionComment {
+const mutation = gql`mutation addDiscussionComment {
     addDiscussionComment(
-      input: {body: ${body}, discussionId: ${discussionId}, clientMutationId: ${gqlClientMutationId}}
+      input: {
+        body: ${body}, 
+        discussionId: ${discussionId}, 
+        clientMutationId: ${gqlClientMutationId}
+    }
     ) {
       clientMutationId
       comment {
