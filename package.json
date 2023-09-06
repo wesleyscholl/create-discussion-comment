@@ -16,6 +16,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@vercel/ncc": "^0.38.0",
+    "graphql": "^16.8.0",
     "graphql-request": "^6.1.0"
   }
 }
