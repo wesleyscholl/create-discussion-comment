@@ -13,6 +13,6 @@ jobs:
         with:
           token: ${{ github.token }}
           body: 'Test comment'
-          discussion-id: 'D_kwDOKMfoY84AVVQ6'
+          discussion-id: 'D_kwDOKMfoY84AVVQz'
           gql-client-mutation-id: '8888'
     
