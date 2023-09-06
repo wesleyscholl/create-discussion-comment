@@ -1,17 +1,19 @@
-name: Comment
+name: Discussion Comment
 
 on:
   workflow_dispatch:
 
 jobs:
   run-my-action:
-    name: Checks if this action works
+    name: Create Discussion Comment 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+          token: '${{ GITHUB_TOKEN }}'
           graphql-url: 'https://api.github.com/graphql'
           body: "This is a test comment!"
           discussion-id: 'D_kwDOKMfoY84AVVQ6'
