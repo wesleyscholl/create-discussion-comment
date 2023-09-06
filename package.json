@@ -1,0 +1,24 @@
+{
+  "name": "create-discussion-comment",
+  "version": "1.0.0",
+  "description": "A GitHub Action for Creating Discussion Comments",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesleyscholl/create-discussion-comment.git"
+  },
+  "keywords": [
+    "discussion",
+    "comment",
+    "action"
+  ],
+  "author": "Wesley Scholl <128409641+wesleyscholl@users.noreply.github.com> (https://github.com/wesleyscholl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wesleyscholl/create-discussion-comment/issues"
+  },
+  "homepage": "https://github.com/wesleyscholl/create-discussion-comment#readme"
+}
