@@ -12,7 +12,7 @@ jobs:
       - uses: ./
         with:
           token: ${{ github.token }}
-          body: "This is a test comment!"
+          body: 'Test comment'
           discussion-id: 'D_kwDOKMfoY84AVVQ6'
           gql-client-mutation-id: '8888'
     
