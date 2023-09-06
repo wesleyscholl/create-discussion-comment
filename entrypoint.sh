@@ -2,4 +2,4 @@
 
 set -e
 
-sh -c "curl --silent --show-error --fail-with-body $*"
+sh -c "$*"
