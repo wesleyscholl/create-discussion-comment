@@ -1,5 +1,4 @@
 import { getInput } from '@actions/core';
-// @ts-expect-error
 import { request, gql } from 'graphql-request'
 
 const token = getInput('token');
@@ -31,13 +30,11 @@ const headers = {
     }
   }`
 
-const data = async(params: any) => {
-    await request({
-        graphqlUrl,
-        mutation,
-        headers,
-      })
-}
+const data = async() => {
+   const res = await request(graphqlUrl, mutation, headers)
+   return res
+} 
 
 
-console.log(data)
+
+console.log(data())
