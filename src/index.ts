@@ -37,7 +37,7 @@ const mutation = gql`mutation addDiscussionComment {
   }`
 
 const data = async() => {
-   const res = await client.request(mutation)
+   const res = await client.request(mutation, {}, {})
    console.log(res)
    return res
 } 
