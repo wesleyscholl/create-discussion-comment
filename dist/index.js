@@ -31117,10 +31117,10 @@ const token = (0, core_1.getInput)('token');
 const body = (0, core_1.getInput)('body');
 const discussionId = (0, core_1.getInput)('discussion-id');
 const gqlClientMutationId = (0, core_1.getInput)('gql-client-mutation-id');
-console.log(`Token: ${token}!`);
-console.log(`Comment Body: ${body}!`);
-console.log(`Discussion Topic ID: ${discussionId}!`);
-console.log(`GraphQL Client Mutation ID: ${gqlClientMutationId}!`);
+console.log(`Token: ${token}`);
+console.log(`Comment Body: "${body}"`);
+console.log(`Discussion Topic ID: "${discussionId}"`);
+console.log(`GraphQL Client Mutation ID: "${gqlClientMutationId}"`);
 const endpoint = 'https://api.github.com/graphql';
 const client = new graphql_request_1.GraphQLClient(endpoint, {
     headers: {

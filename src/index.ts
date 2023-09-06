@@ -6,10 +6,10 @@ const body = getInput('body');
 const discussionId = getInput('discussion-id');
 const gqlClientMutationId = getInput('gql-client-mutation-id');
     
-console.log(`Token: ${token}!`);
-console.log(`Comment Body: ${body}!`);
-console.log(`Discussion Topic ID: ${discussionId}!`);
-console.log(`GraphQL Client Mutation ID: ${gqlClientMutationId}!`);
+console.log(`Token: ${token}`);
+console.log(`Comment Body: "${body}"`);
+console.log(`Discussion Topic ID: "${discussionId}"`);
+console.log(`GraphQL Client Mutation ID: "${gqlClientMutationId}"`);
 
 const endpoint = 'https://api.github.com/graphql'
 
