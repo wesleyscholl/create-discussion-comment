@@ -8,30 +8,26 @@ runs:
 
 
 inputs:
-  name:
-    description: 'The name of the person to greet'
-    required: true
-    default: 'World'
-
-  # token:
-  #   description: 'GitHub PAT token, defaults to secrets.GITHUB_TOKEN'
-  #   required: false
-  #   default: ${{ secrets.GITHUB_TOKEN }}
-  # graphql-url:
-  #   description: 'GitHub GraphQL Endpoint URL'
-  #   required: false
-  #   default: https://api.github.com/graphql
-  # body:
-  #   description: 'Comment Body String'
-  #   required: false
-  #   default: 'Default Comment Body String'
-  # discussion-id:
-  #   description: 'Discussion Topic ID - String'
-  #   required: true
-  # gql-client-mutation-id:
-  #   description: 'A unique numeric string required by GraphQL for mutations'
-  #   required: false
-  #   default: '1234'
+  token:
+    description: 'GitHub PAT token, defaults to secrets.GITHUB_TOKEN'
+    required: false
+    default: ${{ secrets.GITHUB_TOKEN }}
+  graphql-url:
+    description: 'GitHub GraphQL Endpoint URL'
+    required: false
+    default: https://api.github.com/graphql
+  body:
+    description: 'Comment Body String'
+    required: false
+    default: 'Default Comment Body String'
+  discussion-id:
+    description: 'Discussion Topic ID - String'
+    required: false
+    default: '1zd4rwi67ob9g8da'
+  gql-client-mutation-id:
+    description: 'A unique numeric string required by GraphQL for mutations'
+    required: false
+    default: '1234'
 
 
 branding:
