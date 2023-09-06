@@ -12,7 +12,6 @@ jobs:
       - uses: ./
         with:
           token: ${{ github.token }}
-          graphql-url: 'https://api.github.com/graphql'
           body: "This is a test comment!"
           discussion-id: 'D_kwDOKMfoY84AVVQ6'
           gql-client-mutation-id: '8888'

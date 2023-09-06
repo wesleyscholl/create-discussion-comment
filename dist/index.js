@@ -31114,19 +31114,20 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __nccwpck_require__(2186);
 const graphql_request_1 = __nccwpck_require__(5406);
 const token = (0, core_1.getInput)('token');
-const graphqlUrl = (0, core_1.getInput)('graphql-url');
 const body = (0, core_1.getInput)('body');
 const discussionId = (0, core_1.getInput)('discussion-id');
 const gqlClientMutationId = (0, core_1.getInput)('gql-client-mutation-id');
 console.log(`Token: ${token}!`);
-console.log(`GraphQL URL: ${graphqlUrl}!`);
 console.log(`Comment Body: ${body}!`);
 console.log(`Discussion Topic ID: ${discussionId}!`);
 console.log(`GraphQL Client Mutation ID: ${gqlClientMutationId}!`);
-const headers = {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
-};
+const endpoint = 'https://api.github.com/graphql';
+const client = new graphql_request_1.GraphQLClient(endpoint, {
+    headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+    },
+});
 const mutation = (0, graphql_request_1.gql) `mutation addDiscussionComment {
     addDiscussionComment(
       input: {body: ${body}, discussionId: ${discussionId}, clientMutationId: ${gqlClientMutationId}}
@@ -31139,10 +31140,11 @@ const mutation = (0, graphql_request_1.gql) `mutation addDiscussionComment {
     }
   }`;
 const data = async () => {
-    const res = await (0, graphql_request_1.request)(graphqlUrl, mutation, headers);
+    const res = await client.request(mutation);
+    console.log(res);
     return res;
 };
-console.log(data());
+data();
 
 })();
 
