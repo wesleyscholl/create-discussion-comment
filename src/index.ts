@@ -14,7 +14,7 @@ console.log(`Discussion Topic ID: ${discussionId}!`);
 console.log(`GraphQL Client Mutation ID: ${gqlClientMutationId}!`);
 
 const headers = {
-    'Authorization': `Bearer ${token}`,
+    'Authorization': `Bearer ${token }`,
     'Content-Type': 'application/json'
   };
   
