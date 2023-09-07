@@ -11,6 +11,5 @@ LABEL "maintainer"="Wesley Scholl <wscholl@totalwine.com>"
 
 RUN apk update && apk add --no-cache curl ca-certificates
 RUN chmod +x entrypoint.sh
-ADD *.sh /
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["--help"]
