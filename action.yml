@@ -31,14 +31,6 @@ runs:
         shell: bash
         id: discusscomment
         run: |
-          echo RESPONSE=$(curl -v -X POST -H "Authorization: bearer ${{inputs.token}}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' https://api.github.com/graphql)
+          RESPONSE=$(curl -v -X POST -H "Authorization: bearer ${{inputs.token}}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' https://api.github.com/graphql)
           echo $RESPONSE
-          echo "commentid=echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.id'" >> $GITHUB_ENV
-          echo "commentbody=echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.body'" >> $GITHUB_ENV
-  
-      - name: Get Output
-        shell: bash
-        id: getoutput
-        run: |
-          echo ${{env.commentid}}
-          echo ${{env.commentbody}}
+         
