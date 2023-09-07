@@ -3,8 +3,9 @@ jobs:
   curl:
     runs-on: ubuntu-latest
     steps:
-    - name: curl
-      uses: wei/curl@v1
+    - uses: actions/checkout@v1
+    - name: test-action
+      uses: ./.github/actions/action
       with:
         args: -X POST https://httpbin.org/post
         
