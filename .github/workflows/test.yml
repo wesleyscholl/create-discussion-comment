@@ -5,7 +5,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: test-action
-      uses: ../../action
+      uses: ./workflows/actions/action
       with:
         args: echo curl -X POST https://httpbin.org/post
         
