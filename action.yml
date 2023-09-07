@@ -1,8 +1,9 @@
 name: 'Create Discussion Comment'
 description: 'Create Comments on Exsiting GitHub Discussions using GitHub Actions'
 author: 'Wesley Scholl'
-icon: message-square
-color: green
+branding:
+  icon: message-square
+  color: green
 runs:
   using: 'docker'
   image: 'Dockerfile'
