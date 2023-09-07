@@ -12,6 +12,7 @@ jobs:
       id: create-comment
       with:
         discussion-id: 'D_kwDOKEe7W84AVXOO'
+        client-mutation-id: '8888'
 
     - name: echo output from create-discussion-comment
       run: |
