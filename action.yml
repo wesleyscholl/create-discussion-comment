@@ -29,6 +29,7 @@ runs:
         uses: actions/checkout@v2
 
       - name: Add Discussion Comment
+        shell: bash
         id: discusscomment
         env:
           GRAPHQL_ENDPOINT: https://api.github.com/graphql
