@@ -11,7 +11,7 @@ jobs:
       uses: wesleyscholl/create-discussion-comment@v1.0.6
       id: create-comment
       with:
-        discussion-id: 'D_kwDOKMfoY84AVVQ6'
+        discussion-id: 'D_kwDOKEe7W84AVXOO'
 
     - name: echo output from create-discussion-comment
       run: |
