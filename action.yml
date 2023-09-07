@@ -33,18 +33,11 @@ runs:
         run: |
           RESPONSE=$(curl -v -X POST -H "Authorization: bearer ${{inputs.token}}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' https://api.github.com/graphql)
           echo $RESPONSE
-          commentid=$($RESPONSE | jq -r '.data.addDiscussionComment.comment.id')
-          commentbody=$($RESPONSE | jq -r '.data.addDiscussionComment.comment.body')
-          echo "ID=$commentid" >> "$GITHUB_OUTPUT"
-          echo "BODY=$commentbody" >> "$GITHUB_OUTPUT"
-    
-      - name: Get Output Data
-        shell: bash
-        env:
-          ID: ${{ steps.discusscomment.outputs.ID }}
-          BODY: ${{ steps.discusscomment.outputs.BODY }}
-        run: |
-          echo $ID
-          echo $BODY
+          echo "Comment ID:"
+          echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.id'
+          echo "Comment Body:"
+          echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.body'
+
+     
 
          
