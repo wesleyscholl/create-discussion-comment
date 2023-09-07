@@ -1,0 +1,36 @@
+name: 'Create Discussion Comment'
+description: 'Create Comments on Exsiting GitHub Discussions using GitHub Actions'
+author: 'Wesley Scholl'
+icon: command
+
+inputs:
+  token:
+    description: "GitHub Token or PAT, defaults to GITHUB_TOKEN"
+    required: false
+    default: ${{ secrets.GITHUB_TOKEN }}
+  body:
+    description: "Comment Body String"
+    required: false
+    default: "Comment provided by GitHub Action create-discussion-comment"
+  discussion-id:
+    description: "Discussion topic ID"
+    required: true
+  client-mutation-id: 
+    description: "Client Mutation ID - Unique"
+    required: false
+    default: "1234"
+
+runs:
+  using: "composite"
+  steps:
+      - name: Checkout Actions Repo
+        uses: actions/checkout@v1
+
+      - name: Add Discussion Comment
+        id: discusscomment
+        env:
+          GRAPHQL_ENDPOINT: https://api.github.com/graphql
+        run: |
+          RESPONSE=$(curl -X POST -H "Authorization: bearer ${{ secrets.GITHUB_TOKEN }}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' ${GRAPHQL_ENDPOINT}) 
+          echo "::set-output name=commentid::$(echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.id')"
+  

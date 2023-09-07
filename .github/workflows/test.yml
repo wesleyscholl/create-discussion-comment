@@ -1,11 +1,18 @@
-on: push
+name: Create Comment
+on: [workflow_dispatch]
 jobs:
-  curl:
+  greeting:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: test-action
-      uses: wesleyscholl/create-discussion-comment@v1.0.1
+    - name: Checkout this repo
+      uses: actions/checkout@v2
+
+    - name: Run create-discussion-comment
+      uses: ./actions/create-discussion-comment
+      id: create-comment
       with:
-        args: echo curl -X POST https://httpbin.org/post
-        
+        discussion-id: 'D_kwDOKMfoY84AVVQ6'
+
+    - name: echo output from create-discussion-comment
+      run: |
+        echo ${{ steps.create-comment.outputs.commentid }}
