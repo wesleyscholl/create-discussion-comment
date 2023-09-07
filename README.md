@@ -20,21 +20,16 @@ This action allows you to add comments to GitHub Discussions using GitHub Action
 In your workflow, to create a new comment on a discussion topic, include a step like this:
 
 ```yaml
-    - name: Create a new GitHub Discussion
-      id: create-discussion
-      uses: abirismyname/create-discussion@v1.x
+    - name: Run create-discussion-comment
+      uses: wesleyscholl/create-discussion-comment@v1.0.x
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      id: create-comment
       with:
-        title: Feelings
-        body: |
-          Let's talk!
-        repository-id: ${{ secrets.REPO_ID }}
-        category-id: ${{ secrets.CAT_ID }}  
-    - name: Print discussion url and id
-      run: |
-        echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
-        echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}             
+        discussion-id: 'D_kwdje64ife75s9o'
+        client-mutation-id: '1234'
+        token: ${{ GITHUB_TOKEN }}
+        body: "This is a test comment from a GitHub action"          
 ```
 
 ## Inputs
