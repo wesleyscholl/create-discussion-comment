@@ -3,7 +3,6 @@ on: [workflow_dispatch]
 jobs:
   comment:
     runs-on: ubuntu-latest
-    secrets: inherit
     steps:
     - name: Checkout this repo
       uses: actions/checkout@v2
