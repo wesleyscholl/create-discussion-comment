@@ -9,7 +9,7 @@ inputs:
   token:
     description: "GitHub Token or PAT, defaults to GITHUB_TOKEN"
     required: false
-    default: ${{ secrets.GITHUB_TOKEN }}
+    default: "${{ secrets.GITHUB_TOKEN }}"
   body:
     description: "Comment Body String"
     required: false
@@ -33,6 +33,6 @@ runs:
         env:
           GRAPHQL_ENDPOINT: https://api.github.com/graphql
         run: |
-          RESPONSE=$(curl -X POST -H "Authorization: bearer ${{ secrets.GITHUB_TOKEN }}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' ${GRAPHQL_ENDPOINT}) 
+          RESPONSE=$(curl -X POST -H "Authorization: bearer ${{inputs.token}}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' ${GRAPHQL_ENDPOINT}) 
           echo "::set-output name=commentid::$(echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.id')"
   
