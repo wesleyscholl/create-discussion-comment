@@ -1,8 +1,9 @@
 name: Create Comment
 on: [workflow_dispatch]
 jobs:
-  greeting:
+  comment:
     runs-on: ubuntu-latest
+    secrets: inherit
     steps:
     - name: Checkout this repo
       uses: actions/checkout@v2
@@ -13,6 +14,8 @@ jobs:
       with:
         discussion-id: 'D_kwDOKEe7W84AVXOO'
         client-mutation-id: '8888'
+        token: ${{ secrets.GITHUB_TOKEN }}
+        body: "This is a test comment from a GitHub action"
 
     - name: echo output from create-discussion-comment
       run: |
