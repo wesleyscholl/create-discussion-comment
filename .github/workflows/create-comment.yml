@@ -8,7 +8,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run create-discussion-comment
-      uses: wesleyscholl/create-discussion-comment@v1.0.9
+      uses: wesleyscholl/create-discussion-comment@v1.0.10
       id: create-comment
       with:
         discussion-id: 'D_kwDOKEe7W84AVXOO'
