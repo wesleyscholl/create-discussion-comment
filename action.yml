@@ -32,6 +32,8 @@ runs:
         shell: bash
         id: discusscomment
         run: |
-          RESPONSE=$(curl -X POST -H "Authorization: bearer ${{inputs.token}}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' https://api.github.com/graphql) 
+          RESPONSE=$(curl -v -X POST -H "Authorization: bearer ${{inputs.token}}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' https://api.github.com/graphql) 
+          sleep 3
+          echo $RESPONSE
           echo "::set-output name=commentid::$(echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.id')"
   
