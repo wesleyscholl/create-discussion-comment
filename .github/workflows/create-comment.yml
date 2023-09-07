@@ -13,8 +13,8 @@ jobs:
       with:
         discussion-id: 'D_kwDOKEe7W84AVXOO'
         client-mutation-id: '8888'
-        token: ${{ github.token }}
         body: "This is a test comment from a GitHub action"
+        token: ${{ secrets.DISCUSS_TOKEN }}
 
     - name: echo output from create-discussion-comment
       run: |
