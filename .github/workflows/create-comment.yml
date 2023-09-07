@@ -10,13 +10,11 @@ jobs:
 
     - name: Run create-discussion-comment
       uses: wesleyscholl/create-discussion-comment@v1.0.7
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       id: create-comment
       with:
         discussion-id: 'D_kwDOKEe7W84AVXOO'
         client-mutation-id: '8888'
-        token: ${{ GITHUB_TOKEN }}
+        token: ${{ github.token }}
         body: "This is a test comment from a GitHub action"
 
     - name: echo output from create-discussion-comment
