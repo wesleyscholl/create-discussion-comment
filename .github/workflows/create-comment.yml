@@ -15,7 +15,3 @@ jobs:
         client-mutation-id: '8888'
         body: "This is a test comment from a GitHub action"
         token: ${{ secrets.DISCUSS_TOKEN }}
-
-    - name: echo output from create-discussion-comment
-      run: |
-        echo ${{ steps.create-comment.outputs.commentid }}
