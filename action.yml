@@ -7,9 +7,8 @@ branding:
 
 inputs:
   token:
-    description: "GitHub Token or PAT, defaults to GITHUB_TOKEN"
-    required: false
-    default: ${{ github.token }}
+    description: "GitHub Token or PAT"
+    required: true
   body:
     description: "Comment Body String"
     required: false
@@ -18,7 +17,7 @@ inputs:
     description: "Discussion topic ID"
     required: true
   client-mutation-id: 
-    description: "Client Mutation ID - Unique"
+    description: "Client Mutation ID - This should be unique"
     required: false
     default: "1234"
 
@@ -33,7 +32,13 @@ runs:
         id: discusscomment
         run: |
           RESPONSE=$(curl -v -X POST -H "Authorization: bearer ${{inputs.token}}" -H "Content-Type: application/json" -d '{"query": "mutation { addDiscussionComment(input: {body: \"${{inputs.body}}\" discussionId: \"${{inputs.discussion-id}}\" clientMutationId: \"${{inputs.client-mutation-id}}\"}) { clientMutationId comment { id body } } }"}' https://api.github.com/graphql) 
-          sleep 3
           echo $RESPONSE
-          echo "::set-output name=commentid::$(echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.id')"
+          echo "{commentid}={echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.id'}" >> $GITHUB_OUTPUT
+          echo "{commentbody}={echo $RESPONSE | jq -r '.data.addDiscussionComment.comment.body'}" >> $GITHUB_OUTPUT
   
+      - name: Get Output
+        shell: bash
+        id: getoutput
+        run: |
+          echo ${{steps.discusscomment.outputs.commentid}}
+          echo ${{steps.discusscomment.outputs.commentbody}}
