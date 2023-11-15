@@ -1,6 +1,6 @@
 # Create Discussion Comment ⌨️💬✅
 
-Create Comments on Exsiting GitHub Discussions using GitHub Actions
+#### Create Comments on Exsiting GitHub Discussions using GitHub Actions
 
  [![Tests](https://img.shields.io/badge/Tests-Pass-gree.svg?logo=github&colorA=24292e)](https://github.com/wesleyscholl/create-discussion-comment) 
  
