@@ -6,6 +6,8 @@
  [![Code Style: prettier](https://img.shields.io/badge/Code_Style-Prettier-ff69b4.svg?logo=prettier&colorA=24292e&logoColor=white)](https://github.com/prettier/prettier) 
  [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Create%20Discussion%20Comment-blue.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=github)](https://github.com/marketplace/actions/)
 
+ <img width="650" alt="logo" src="https://github.com/user-attachments/assets/b4b4b68f-fe1d-40b2-bf50-065b51eb49d5" />
+
 ## 🌟 What is this Action?
 
 The **Create Discussion Comment** action empowers you to programmatically add comments to your GitHub Discussions using GitHub Actions workflows. Whether you're building automated workflows, creating notification systems, or enhancing your community engagement, this action makes it simple to interact with GitHub Discussions at scale.
