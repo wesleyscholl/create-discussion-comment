@@ -10,7 +10,7 @@
 
 ## 🌟 What is this Action?
 
-The **Create Discussion Comment** action empowers you to programmatically add comments to your GitHub Discussions using GitHub Actions workflows. Whether you're building automated workflows, creating notification systems, or enhancing your community engagement, this action makes it simple to interact with GitHub Discussions at scale.
+The **Create Discussion Comment** action empowers you to programmatically add comments to your GitHub Discussions via GitHub Actions workflows. Whether you're building automated workflows, creating notification systems, or enhancing your community engagement, this action makes it simple to interact with GitHub Discussions at scale.
 
 ### 🎯 Perfect for:
 - 🤖 **Automated responses** to discussion topics
